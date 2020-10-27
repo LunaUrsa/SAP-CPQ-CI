@@ -19,7 +19,7 @@ jobs:
       - name: Set up python environment
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8.2' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          python-version: '3.9.0' # Version range or exact version of a Python version to use, using SemVer's version range syntax
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
       
       - name: Install/Upgrade Pip
@@ -34,12 +34,12 @@ jobs:
       - name: Build Python Scripts
         run: pyinstaller engine/parser.py
 
-      - name: Install Node.js, NPM and Yarn
+      - name: Install Node.js, NPM
         uses: actions/setup-node@v1
         with:
           node-version: 12.12.0
 
-      - name: Install Node.js, NPM and Yarn
+      - name: Yarn
         run: npm install yarn -g
           
       - name: Install node packages
