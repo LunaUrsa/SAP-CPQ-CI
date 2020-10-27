@@ -4,7 +4,7 @@ This is an electron app that aims to be extendable for new projects.
 Currently it has two very useful features:
 
 * Code Exporter and continuous integration
-* Formula Formatter
+* Formula Formatter 
 
 ## Getting Started
 Head on over to the [Releases](https://github.com/LunaUrsa/SAP-CPQ-CI/releases) section and download/install the latest release.
