@@ -33,7 +33,7 @@
   "main": ".\\gui\\main.js",
   "scripts": {
     "start": "electron .",
-    "postinstall": "yarn run installPython && yarn run upgradePipGlobal && yarn run installVENV && yarn run createVenv && yarn run upgradePipVenv && yarn run installPythonModules && yarn run installVSCodeModule && yarn run endDevComment",
+    "postinstall1": "yarn run installPython && yarn run upgradePipGlobal && yarn run installVENV && yarn run createVenv && yarn run upgradePipVenv && yarn run installPythonModules && yarn run installVSCodeModule && yarn run endDevComment",
     " ": "",
     "installPython": "choco install python -y",
     "upgradePipGlobal": "python -m pip install --upgrade pip",
