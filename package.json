@@ -1,0 +1,110 @@
+{
+  "name": "sap-cpq-tools",
+  "description": "An application with various SAP CPQ tools!",
+  "author": {
+    "name": "Eric Hoftiezer",
+    "email": "erichoftiezer@gmail.com"
+  },
+  "version": "v1.2.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LunaUrsa/SAP-CPQ-CI.git"
+  },
+  "bugs": "https://github.com/LunaUrsa/SAP-CPQ-CI/issues",
+  "private": true,
+  "contributors": [
+    {
+      "name": "Lawrence Clark",
+      "email": "lawrenceclark@canidium.com",
+      "part": "Consultation on many aspects"
+    },
+    {
+      "name": "Jamie Vo",
+      "email": "jamievo@canidium.com",
+      "part": "Most of the UI"
+    },
+    {
+      "name": "Corey Shewell",
+      "email": "coreyshewell@canidium.com",
+      "part": "Code Parser"
+    }
+  ],
+  "main": ".\\gui\\main.js",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "yarn run installPython && yarn run upgradePipGlobal && yarn run installVENV && yarn run createVenv && yarn run upgradePipVenv && yarn run installPythonModules && yarn run installVSCodeModule && yarn run endDevComment",
+    " ": "",
+    "installPython": "choco install python -y",
+    "upgradePipGlobal": "python -m pip install --upgrade pip",
+    "installVENV": "pip install virtualenv",
+    "createVenv": "py -m venv env --copies",
+    "upgradePipVenv": ".\\env\\Scripts\\python -m pip  install --upgrade pip",
+    "installPythonModules": ".\\env\\Scripts\\pip install -r engine/requirements.txt",
+    "installVSCodeModule": "yarn",
+    "activateVenv - You must copy/paste this into the console": ".\\env\\Scripts\\activate",
+    "endDevComment": "echo Dev setup complete, activate the python venv in your IDE: .\\env\\Scripts\\activate",
+    "  ": "",
+    "devBuild": "yarn run installPyinstaller && yarn run buildPython && yarn run rmBuild && yarn run buildElectron && yarn run rmDist && yarn run endBuildComment",
+    "installPyinstaller": "pip install pyinstaller",
+    "buildPython": "yarn run buildParser",
+    "buildParser": "pyinstaller engine/parser.py -y && del parser.spec",
+    "rmBuild": "rmdir build /s /q",
+    "buildElectron": "electron-builder --publish never",
+    "rmDist": "rmdir dist /s /q",
+    "publishElectron": "electron-builder --publish always",
+    "endBuildComment": "echo Your program has been built! Check the Output folder!"
+  },
+  "devDependencies": {
+    "devtron": "^1.4.0",
+    "electron": "^8.2.3",
+    "electron-builder": "^22.6.0",
+    "eslint": "^7.0.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.2.2"
+  },
+  "dependencies": {
+    "animejs": "^3.1.0",
+    "bootstrap": "^4.4.1",
+    "chokidar": "^3.4.0",
+    "electron-debug": "^3.0.1",
+    "electron-is-dev": "^1.2.0",
+    "electron-log": "^4.1.2",
+    "electron-settings": "^3.2.0",
+    "electron-updater": "^4.3.1",
+    "electron-util": "^0.14.1",
+    "github-create-issue": "^2.0.0",
+    "jquery": "^3.4.1",
+    "menu": "^0.2.5",
+    "popper.js": "^1.16.1",
+    "read-last-lines": "^1.7.2",
+    "request": "^2.88.2",
+    "slugify": "^1.4.4",
+    "sweetalert2": "^9.17.0"
+  },
+  "build": {
+    "appId": "sap-cpq-tools",
+    "productName": "SAP CPQ Tools",
+    "asar": false,
+    "directories": {
+      "output": "Output"
+    },
+    "files": [
+      "!.github/*",
+      "!env/*",
+      "!Output/*",
+      "!build/*",
+      "!.vscode/*",
+      "!/.eslint.js",
+      "!.gitignore",
+      "!README.md",
+      "!.eslintrc.js",
+      "!yarn-error.log",
+      "!dev-app-update.yml"
+    ]
+  }
+}

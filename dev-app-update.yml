@@ -1,0 +1,4 @@
+owner: LunaUrsa
+repo: SAP-CPQ-CI
+provider: github
+updaterCacheDirName: sap-cpq-tools-updater

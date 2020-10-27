@@ -1,0 +1,710 @@
+<head>
+    <style>
+        @import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
+    </style>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <script>
+        require('bootstrap');
+    </script>
+    <script src="https://kit.fontawesome.com/1c9144b004.js" crossorigin="anonymous"></script>
+    <script src="./renderer.js"></script>
+    <script src="./background.js"></script>
+    <script src="./SAPCPQCI.js"></script>
+    <script src="./report.js"></script>
+
+
+
+    <meta charset="UTF-8" />
+    <title>SAP CPQ Tools</title>
+
+    <!--menu-bar-->
+
+    <div id="master_menu">
+        <div id="menu-bar">
+            <div class="left">
+                <button class="menubar-btn" id="minimize-btn"><i class="fas fa-window-minimize"></i></button>
+                <button class="menubar-btn" id="max-unmax-btn"><i class="far fa-square"></i></button>
+                <button class="menubar-btn" id="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--NEW NAVBAR-->
+    <nav class="navbar navbar-expand-lg navbar sticky-top navbar-dark bg-dark">
+        <a class="navbar-brand" id="go_home" href="#home">SAP Tools App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" id="go_exporter" href="#exporter">CPQ Code Sync <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="go_parser" href="#parser">Parser</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="go_weather" href="#weather">Weather</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#about_app" id="go_app">The App</a>
+                        <a class="dropdown-item" href="#about_team" id="go_team">The Team</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="go_debug" href="#debug">Report</a>
+                </li>
+                <!-- </li> -->
+            </ul>
+        </div>
+    </nav>
+    </div>
+    <!--master_menu-->
+    <!--END OF NEW NAVBAR-->
+</head>
+
+<body>
+    <div id="home_html" onload="home()">
+        <div class="container">
+            <br>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="images/carosel-canidium.jpg" alt="First slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1 class="welcome_carousel">Welcome to SAP Tools Suite</h1>
+                            <p class="welcome_carousel">The following programs were created with love.
+                            </p>
+                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="images/exporter.jpg" alt="Second slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>CPQ Code Sync</h1>
+                            <p>Export code snippets from the CPQ's sandbox.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="images/parser-dude.jpg" alt="Third slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>CPQ Formula Parser</h1>
+                            <p>Parse SAP's code to be more readable.</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+            <br>
+            <div class="row">
+                <!-- Exporter Card -->
+                <div class="col" id="go_exporter_card">
+                    <div class="card border-dark text-white bg-dark mb-3">
+                        <img class="card-img-top" src="images/exporter.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">CPQ Code Sync</h5>
+                            <p class="card-text">Export code snippets from the CPQ sandbox (html, python scripts,
+                                etc...) as needed.
+                                <br>
+                                <br> Created by Eric Hoftiezier
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Parser card -->
+                <div class="col" id="go_parser_card">
+                    <div class="card border-dark text-white bg-dark mb-3">
+                        <img class="card-img-top" src="images/parser-dude.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Parser</h5>
+                            <p class="card-text">Parse SAP's code to be more readable and allow for quick debugging.
+                                <br><br> Created by Corey Shewell
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Weather Card -->
+                <div class="col" id="go_weather_card">
+                    <div class="card border-dark text-white bg-dark mb-3">
+                        <img class="card-img-top" src="images/weather-earth.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Weather</h5>
+                            <p class="card-text">Check the weather anywhere by simply typing in the place's name!
+                                <br><br> This is an example page for future reference.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--exporter_html-->
+    <div id="exporter_html">
+        <br>
+        <div class="container-fluid">
+            <div id="exp_intro">
+                <div class="row">
+                    <h1>SAP CPQ Code Sync Utility</h1>
+                </div>
+                <div class="row">
+                    <button type="button" class="collapsible"
+                        style='font-weight: bold; font-size: 14px; text-align: center;'>Click here for help!</button>
+                    <div class="content">
+                        <p>Welcome to the SAP CPQ Code Sync tool! <sup>(now with 100% more GUI!)</sup><br>
+                            This page will allow you to pull code from CPQ environments, and then push modifications to
+                            those files back to CPQ!<br>
+                            <b>If you encounter any problems be sure to send in the error report when asked!</b><br>
+                            To get started, <b>fill in your credential information</b>, and the folder you want to put
+                            the code, below. <br>
+                            When everything is filled in, click <b>Save Credentials</b> to save your information to your
+                            PC<br>
+                            You can save multiple sites, production or sandbox, and choose between them in the
+                            drop-down.<br>
+                            When ready, click <b>"Refresh Scripts"</b> and wait for the process to finish.<br>
+                            <br>
+                            To get code back into CPQ you must first <b>Start Watcher</b><br>
+                            Everything you can download from CPQ can be uploaded back to CPQ, and only takes a second or
+                            so.<br>
+                            Once the watcher is enabled you just need to "save" changes to a file in the "folder
+                            location" you chose to watch.<br>
+                            You cannot download code while the watcher is watching, this is by design.<br>
+                            <br>
+                            If you have any questions, please contact Eric Hoftiezer at erichoftiezer@gmail.com.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="actions_row">
+                <div class="col">
+                    <!-- <br> -->
+                    <!-- <h4 id="exp_actions"><label>Actions</label></h4> -->
+                </div>
+            </div>
+            <div class="row" id="actions_row">
+                <div class="col" id="actions_col">
+                    <!-- <button class="btn btn-secondary" id="testLogin">Test Login</button> -->
+                    <button class="btn btn-secondary" id="startExtraction">Refresh Scripts</button>
+                    <button class="btn btn-secondary" id="watcher">Start Watcher</button>
+                </div>
+
+            </div>
+            <!-- <div class="row" id="actions_row">
+                <div class="col" id="actions_col">
+                    <label class="form-check-label" for="watcher" id="watcherLabel">Toggle Watcher</label>
+                    <label class="switch">
+                        <input class="form-check-input option" type="checkbox" value="" id="watcher" name="watcher">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div> -->
+            <br>
+            <div id="General">
+                <div class="row general_row">
+                    <div class="col-12">
+                        <!-- <h4 id="exp_general"><label>General Parameters</label></h4> -->
+
+                        <div class="form-group text-center">
+                            <label for="sel1">Saved Credentials:</label>
+                            <select class="form-control" id="domainSelector">
+                            </select>
+                        </div>
+                        <div class="row" id="actions_row">
+                            <div class="col" id="actions_col">
+                                <button class="btn btn-secondary" id="save(true)">Save Credentials</button>
+                                <!-- <button class="btn btn-secondary" id="reset">Reset Domain</button> -->
+                                <button class="btn btn-secondary" id="deleteConfig">Delete Credentials</button>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row row_parameters row_1">
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">https://</span>
+                                    </div>
+                                    <input type="text" id="url" class="form-control" aria-label="URL"
+                                        aria-describedby="basic-addon1" value="sandbox.webcomcpq.com">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">User name</span>
+                                    </div>
+                                    <input type="password" id="username" class="form-control" placeholder="Username"
+                                        aria-label="Username" aria-describedby="basic-addon1">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><input id="username_hide"
+                                                type="checkbox" name="username_hide" class="cloak"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Domain</span>
+                                    </div>
+                                    <input type="text" id="domain" class="form-control" placeholder="domainName"
+                                        aria-label="domainName" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Password</span>
+                                    </div>
+                                    <input type="password" id="password" class="form-control" placeholder="password"
+                                        aria-label="Username" aria-describedby="basic-addon1">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><input id="password_hide"
+                                                type="checkbox" name="password_hide" class="cloak"></span>
+                                    </div>
+                                </div>
+                                <!-- <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="git_connect"
+                                        name="git_connect">
+                                    <label class="form-check-label" for="defaultCheck1">Github Connection </label>
+                                </div> -->
+                            </div>
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <button class="btn btn-secondary" id="select-file">Choose Folder</button>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Folder Location</span>
+                                    </div>
+                                    <input type="text" disabled="disabled" id="actual-file" class="form-control"
+                                        placeholder="Please select a file" aria-label="file"
+                                        aria-describedby="basic-addon1">
+                                    <div></div>
+                                    <button class="btn btn-secondary" id="openFolder">Open Folder</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+    <!--parser_html-->
+    <div id="parser_html">
+        <br>
+        <div class="container">
+            <div class="row">
+                <h1>SAP CPQ Code Parser</h1>
+                <p>This application will help with the readibility of SAP CPQ's formulas. In order to avoid issues,
+                    please remember to revert your formula prior to utilizing the formula in CPQ. Also, the lightning
+                    icon will format/revert whatever is on your
+                    clipboard and display the before/after below to help speed up the process. </p>
+                <br>
+                <p>If you have any questions or suggestions, please contact Corey Shewell at coreyshewell@canidium.com.
+                </p>
+            </div>
+            <div class="row parser_col_titles">
+                <div class="col">
+                    <h4>Raw Code</h4>
+                </div>
+                <div class="col">
+                    <h4>Formatted Code</h4>
+                </div>
+            </div>
+            <div class="row parser_row">
+                <div class="col">
+                    <span class="parser_copy"><i class="far fa-copy" id="copyRawCode"></i></span>
+                    <textarea class="p_textarea" id="rawCode" type="text" wrap="pre-wrap"></textarea>
+                </div>
+                <div class="col">
+                    <span class="parser_copy"><i class="far fa-copy" id="copyFormattedCode"></i></span>
+                    <textarea class="p_textarea" id="formattedCode" type="text" wrap="off"></textarea>
+                </div>
+            </div>
+            <div class="row paser_row" id="parser_button_row">
+                <div class="col-5 center">
+                    <button class="btn btn-secondary" id="formatCode">Format Code</button>
+                    <span class="parser_super"><i class="fa fa-bolt" id="superFormatCode"></i></span>
+                </div>
+                <div class="col-2 center"><button class="btn btn-secondary" id="clearTextArea">Clear</button>
+                </div>
+                <div class="col-5 center">
+                    <button class="btn btn-secondary" id="revertCode">Revert Code</button>
+                    <i class="parser_super fa fa-bolt" id="superRevertCode"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--weather_html-->
+    <div id="weather_html">
+        <div class="container">
+            <div class="container">
+                <!-- <div class="row"> -->
+                <h1>Weather Forecast</h1>
+                <br>
+                <h2>Powered by Python</h2>
+                <!-- <br> -->
+                <p>Rendered by HTML and JavaScript</p>
+                <!-- </div> -->
+                <!-- </div> -->
+                <!-- </div> -->
+                <br>
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Enter your city here</span>
+                        </div>
+                        <input type="text" id="city" class="form-control" placeholder="City" aria-label="city"
+                            aria-describedby="basic-addon1">
+                        <button id="weatherButton" class="btn btn-secondary">Go!</button>
+                    </div>
+                    <!--input-group mb-3-->
+                    <div class="col" id="weather_col">
+                        <img id="img_weather" src="images/earth rotating.gif">
+                    </div>
+                </div>
+                <!--col-->
+            </div>
+            <!--container-->
+        </div>
+    </div>
+    <!--about-->
+    <div id="app_html">
+        <div class="container-fluid" id="about_container">
+            <div class="row" id="astronaut_row">
+                <img class="center" id="astronaut" src="images/astronaut.jpg">
+                <br><br>
+            </div>
+            <div class="row"></div>
+            <div class="row">
+                <h1>About the App</h1><br />
+                <p>
+                    This app is a collection of tools that we hope you find useful. Our goal was to create a single,
+                    easy to use platform that allows you access information quickly and efficiently. We're constantly
+                    working to improve and update the program. If you have an
+                    application that you'd like to add to this app, please reach out to Eric Hoftiezer!
+                </p>
+            </div>
+            <div class="row">
+                <h2>Our Stack: Electron | JavaScript | Python</h2><br />
+                <p>
+                    We used Electron as our framework to connect the front and back ends of the program. All front end
+                    functionality has been written in JavaScript. Our goal for V2 is to re-organize the framework to
+                    include knockout JavaScript. For the backend, we used only
+                    python to create the program's primary functionality.
+                </p>
+            </div>
+            <div class="row">
+                <h2>Our Applications</h2><br />
+                <p>
+                    Currently, we have 2 full functioning applications, the exporter and parser. While the weather app
+                    is present, we can't take any credit considering this is the demo app by electron. The exporter will
+                    allow for all html and python scripts to be exorpted
+                    for easier use. A future release will include the code pulled from the exporter to create a
+                    development environment for easier debugging. The parse will take in code in SAP's language and
+                    parse it to be easier to read. We also want
+                    to mention an application by Paul Trozan that will also be included in the next release, which will
+                    allow for the autonomy of tedious tasks in CPQ.
+                </p>
+            </div>
+        </div>
+        <!--container-->
+    </div>
+    <!--app_html-->
+    <div id="team_html">
+        <div class="container-fluid" id="about_team_container">
+            <div class="row">
+                <h1>About the Team</h1><br />
+                <p>
+                    We had tons of fun creating this application. We all came up with our own ideas and incorporated it
+                    into this single platform. We've all come from different backgrounds, but quickly found that we
+                    really enjoy solving problems, writing code, and being
+                    creative. Our hope is to extend the team and add on tools that will be helpful to everyone in the
+                    company. While we're all familiar with developing the front and back ends, our specific duties are
+                    detailed below. If you're interested
+                    in joining, please feel free to reach out!
+                </p>
+            </div>
+            <!--row-->
+            <div class="row">
+                <div class="col team">
+                    <div class="card border-dark text-white bg-dark mb-3 h-100">
+                        <div class="card-header">The Mastermind</div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="images/people/Eric.jpg" class="card-img" alt="...">
+                            </div>
+                            <!--col-4-->
+                            <div class="col-8">
+                                <div class="card-body text-dark">
+                                    <h5 class="card-title about">Eric Hoftiezer</h5>
+                                    <p class="card-text about">I'm new to development and python in general but I love
+                                        to learn and have a knack for figuring stuff out. I created the general
+                                        architecture of the app and coordinated efforts between the team.
+                                        <br><br>This project is many hours of bittersweet learning how to manage an
+                                        application. It would not be possible without the other names on this page, and
+                                        others who are not listed.</p>
+                                </div>
+                                <!--card-body-->
+                            </div>
+                            <!--col-8-->
+                        </div>
+                        <!--row-->
+                    </div>
+                    <!--card-->
+                </div>
+                <!--col-->
+                <div class="col team">
+                    <div class="card border-dark text-white bg-dark mb-3 h-100">
+                        <div class="card-header">The Architect</div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="images/people/Lawrence.png" class="card-img" alt="...">
+                            </div>
+                            <!--col-4-->
+                            <div class="col-8">
+                                <div class="card-body text-dark">
+                                    <h5 class="card-title about">Lawrence Clark</h5>
+                                    <p class="card-text about">Experience with full-stack development, I've created many
+                                        apps in the past. <br> <br>I lead the team on orginization and recommended best
+                                        practices and methods. Updates with a framework to come!</p>
+                                </div>
+                                <!--card-body-->
+                            </div>
+                            <!--col-8-->
+                        </div>
+                        <!--row-->
+                    </div>
+                    <!--card-->
+                </div>
+                <!--col-->
+            </div>
+            <!--row-->
+            <div class="row">
+                <div class="col team">
+                    <div class="card border-dark text-white bg-dark mb-3 h-100">
+                        <div class="card-header">The Pheonix</div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="images/people/Corey.jpg" class="card-img" alt="...">
+                            </div>
+                            <!--col-4-->
+                            <div class="col-8">
+                                <div class="card-body text-dark">
+                                    <h5 class="card-title about">Corey Shewell</h5>
+                                    <p class="card-text about">I built out the parser functionality using a combination
+                                        of python and javascript. While adding in the back end of the parser I tried my
+                                        best (with tons of help from the team, thanks again!) to build out it's front
+                                        end to learn some about that side of the world. This project has been a blast so
+                                        far and I've learned tons. Can't wait to keep the train rolling!
+                                    </p>
+                                </div>
+                                <!--card-body-->
+                            </div>
+                            <!--col-8-->
+                        </div>
+                        <!--row-->
+                    </div>
+                    <!--card-->
+                </div>
+                <!--col-->
+                <div class="col team">
+                    <div class="card border-dark text-white bg-dark mb-3 h-100">
+                        <div class="card-header">The Machine</div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="images/people/Paul.jpg" class="card-img" alt="...">
+                            </div>
+                            <!--col-4-->
+                            <div class="col-8">
+                                <div class="card-body text-dark">
+                                    <h5 class="card-title about">Paul Trozan</h5>
+                                    <p class="card-text about">I created a program that will automate the tedious tasks
+                                        in CPQ. Soon to be released! I created the program all in python and have been
+                                        adding to the functionality.
+                                    </p>
+                                </div>
+                                <!--card-body-->
+                            </div>
+                            <!--col-8-->
+                        </div>
+                        <!--row-->
+                    </div>
+                    <!--card-->
+                </div>
+                <!--col-->
+                <div class="col team">
+                    <div class="card border-dark text-white bg-dark mb-3 h-100">
+                        <div class="card-header">The Artist</div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="images/people/Jamie.jpg" class="card-img" alt="...">
+                            </div>
+                            <!--col-4-->
+                            <div class="col-8">
+                                <div class="card-body text-dark">
+                                    <h5 class="card-title about">Jamie Vo</h5>
+                                    <p class="card-text about">I built out most of the front end using html, css, and
+                                        some javascript. Something coming up soon will be a re-organization of the
+                                        framework with Lawrence. While I'm strongest in python, I flipped roles and took
+                                        on the
+                                        front end here with no regrets! I had tons of fun and can't wait to add on to
+                                        this project.
+                                    </p>
+                                </div>
+                                <!--card-body-->
+                            </div>
+                            <!--col-8-->
+                        </div>
+                        <!--row-->
+                    </div>
+                    <!--card-->
+                </div>
+                <!--col-->
+            </div>
+            <!--row-->
+        </div>
+        <!--container-->
+    </div>
+    <!--team_html-->
+    <div id="report_error_html">
+        <div class="container">
+            <div class="row">
+                <form class="needs-validation" novalidate>
+                    <div class="form-row">
+                        <div class="col-md-3 mb-3">
+                            <label for="reportType">Type</label>
+                            <select class="custom-select my-1 mr-sm-2" id="reportType">
+                                <option selected>Choose...</option>
+                                <option value="1">Bug/Issue</option>
+                                <option value="2">Documentation Request</option>
+                                <option value="3">Enhancement Request</option>
+                                <option value="4">Question</option>
+                                <option value="5">Suggestion/Feedback</option>
+                                <option value="6">Just saying thanks!</option>
+                                <option value="7">Other</option>
+
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="reportSection">Compontent</label>
+                            <select class="custom-select my-1 mr-sm-2" id="reportSection">
+                                <option selected>Choose...</option>
+                                <option value="1">General</option>
+                                <option value="2">Exporter</option>
+                                <option value="3">Parser</option>
+                                <option value="4">Weather</option>
+                                <option value="5">UI</option>
+                                <option value="6">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="reportSeverity">Severity</label>
+                            <select class="custom-select my-1 mr-sm-2" id="reportSeverity">
+                                <option selected>Choose...</option>
+                                <option value="1">Critical - Application breaks entirely</option>
+                                <option value="2">High - Error messages show or functionality does not work</option>
+                                <option value="3">Medium - Something to consider for future dev</option>
+                                <option value="4">Low - Make note of this, might not even be an issue</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="reportSummary">Please summarize your submission.</label>
+                            <input type="text" class="form-control" id="reportSummary"
+                                placeholder="Brief description/title of issue." required>
+                            <div class="invalid-feedback">
+                                Please provide a valid summary.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="reportDescription">Please describe your submission.</label>
+                            <input type="text" class="form-control" id="reportDescription"
+                                placeholder="Detailed description" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid description.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="reportReproduce">Steps to reproduce.</label>
+                            <input type="text" class="form-control" id="reportReproduce"
+                                placeholder="1. Start up the application\n2. Click on exporter\n3. Do thing.">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="reportExpected">What are you expecting to happen/see?</label>
+                            <input type="text" class="form-control" id="reportExpected" placeholder="I expect...">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-3 mb-3">
+                            <label for="reportEmail">Email</label>
+                            <input type="text" class="form-control" id="reportEmail" placeholder="fullname@email.com"
+                                required>
+                        </div>
+                        <div class="invalid-feedback">
+                            Please provide a valid email.
+                        </div>
+                    </div>
+                    <!-- <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                            <label class="form-check-label" for="invalidCheck">
+                                Agree to terms and conditions
+                            </label>
+                            <div class="invalid-feedback">
+                                You must agree before submitting.
+                            </div>
+                        </div>
+                    </div> -->
+                </form>
+                <button id="reportButton" class="btn btn-secondary">Submit form</button>
+
+                <script>
+                    // Example starter JavaScript for disabling form submissions if there are invalid fields
+                    // (function () {
+                    //     'use strict';
+                    //     window.addEventListener('load', function () {
+                    //         // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    //         var forms = document.getElementsByClassName('needs-validation');
+                    //         // Loop over them and prevent submission
+                    //         var validation = Array.prototype.filter.call(forms, function (form) {
+                    //             form.addEventListener('submit', function (event) {
+                    //                 if (form.checkValidity() === false) {
+                    //                     event.preventDefault();
+                    //                     event.stopPropagation();
+                    //                 }
+                    //                 form.classList.add('was-validated');
+                    //             }, false);
+                    //         });
+                    //     }, false);
+                    // })();
+                </script>
+            </div>
+        </div>
+    </div>
+    <footer id="footer" class="footer">
+        <p id="footer_id">Eric Hoftiezer</p>
+    </footer>
+</body>

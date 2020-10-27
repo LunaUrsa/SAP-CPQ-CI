@@ -1,0 +1,447 @@
+/* Nav and footer */
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.p_footer {
+    background-color: #343a40;
+    height: 50px;
+    margin-top: 20px;
+}
+
+.p_textarea {
+    min-width: 50%;
+    max-width: 100%;
+    min-height: 300px;
+    height: 60%;
+    width: 100%;
+    margin-bottom: 15px;
+    background-color: #AAB0BA;
+}
+
+.w-100 {
+    height: 500;
+    object-fit: cover;
+}
+
+footer {
+    background-color: #343a40;
+    height: 50px;
+    width: 100%;
+    bottom: 0;
+    /* position: absolute; */
+}
+
+.container {
+    min-height: 100vh;
+    margin-bottom: -50px;
+    padding-bottom: 50px;
+}
+
+#footer_id {
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* Menu Bar Styling */
+
+#menu-bar {
+    padding: 0;
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    background: #34475a;
+    -webkit-app-region: drag;
+}
+
+#menu-bar>div {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menubar-btn {
+    -webkit-app-region: no-drag;
+    height: 100%;
+    padding: 0 15px;
+    border: none;
+    background: transparent;
+    outline: none;
+    color: white;
+}
+
+.menubar-btn:hover {
+    background: rgba(221, 221, 221, 0.2);
+}
+
+#close-btn:hover {
+    background: rgb(255, 0, 0);
+}
+
+/* exporter */
+
+/* The watcher switch button. Jamie might want to work magick here */
+
+/* The switch - the box around the slider */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+#watcherLabel {
+    vertical-align: top;
+    font-size: 22px
+}
+
+/* Hide default HTML checkbox */
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Other exporter formatting */
+
+#actions_col {
+    text-align: center;
+}
+
+.border {
+    padding: 10px;
+}
+
+.btn-outline-dark {
+    background-color: white !important;
+}
+
+.btn-outline-dark:hover {
+    color: white !important;
+    background-color: #343a40 !important;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#exp_actions {
+    text-align: center;
+}
+
+#exp_general {
+    text-align: center;
+}
+
+#exp_options {
+    text-align: center;
+}
+
+.col-6 {
+    /* border: 1px solid grey;
+    border-radius: 8px; */
+    padding: 10px;
+}
+
+.row_parameters {
+    border-top: 1px solid grey;
+    padding: 10px;
+}
+
+.row_1 {
+    border-right: 1px solid grey;
+    /* padding: 10px; */
+}
+
+#exp_planet {
+    width: 55%;
+    align-content: center;
+}
+
+.planet_pic {
+    text-align: center;
+}
+
+.general_row {
+    border: 1px solid grey;
+    border-radius: 8px;
+}
+
+/* Parser */
+
+.parser_row {
+    /*display: table;  Make the container element behave like a table */
+    width: 100%;
+    /* Set full-width to expand the whole page */
+    /* text-align: center; */
+}
+
+#parser_button_row {
+    margin-bottom: 25px !important;
+}
+
+.parser_col {
+    display: table-cell;
+    /* Make elements inside the container behave like table cells */
+    /*height: 500px;*/
+}
+
+.parser_copy {
+    position: relative;
+    float: right;
+    top: 25px;
+    left: -18px;
+}
+
+.parser_super {
+    position: relative;
+    top: 4px;
+    left: 11px;
+}
+
+.parser_col_titles {
+    text-align: center;
+}
+
+.col {
+    padding: 10px;
+}
+
+.welcome_carousel {
+    color: #343a40;
+    margin-right: 10%;
+    /* background-color: darkblue; */
+}
+
+#img_weather {
+    width: 50%;
+}
+
+#weather_col {
+    text-align: center;
+}
+
+.container-fluid {
+    padding: 3%;
+}
+
+/* about page */
+
+#about_container {
+    padding: 3%;
+}
+
+.far {
+    font-size: x-small;
+}
+
+.fas {
+    font-size: x-small;
+}
+
+.sticky-top {
+    height: auto;
+    /* top: 30px; */
+    /* about pages */
+}
+
+#astronaut_row {
+    padding-bottom: 25px;
+}
+
+#about_container {
+    background-color: black;
+    color: darkgrey;
+}
+
+.about {
+    color: white;
+}
+
+#about_team_container {
+    /* background-color: black; */
+    color: darkgrey;
+}
+
+#master_menu {
+    height: 30px;
+    background-color: black;
+    top: 0;
+    /* Position the navbar at the top of the page */
+    width: 100%;
+    /* Full width */
+    -webkit-app-region: drag;
+}
+
+#menu-bar {
+    float: right;
+    background-color: black;
+}
+
+/* Hover feature */
+
+.input-group-prepend .tooltiptext {
+    visibility: hidden;
+    /* width: 100%;
+    background-color: lightgrey;
+    color: darkslategray;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0; */
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    height: 30px;
+}
+
+.input-group-prepend:hover .tooltiptext {
+    visibility: visible;
+}
+
+.form-check .tooltiptext {
+    visibility: hidden;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    height: 30px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.form-check:hover .tooltiptext {
+    visibility: visible;
+}
+
+.form-inline .tooltiptext {
+    visibility: hidden;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    height: 30px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.form-inline:hover .tooltiptext {
+    visibility: visible;
+}
+
+body {
+    background-color: #262626;
+    color: lightgrey;
+}
+
+.team {
+    height: 70%;
+}
+
+#weather_html {
+    background-color: black;
+}
+
+.custom-select {
+    margin: 0 !important;
+}
+
+.needs-validation {
+    width: 100%;
+}
+
+#validationCustom06 {
+    height: 100px;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+
+.collapsible {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+
+.active, .collapsible:hover {
+    background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    /* background-color: #f1f1f1; */
+}
