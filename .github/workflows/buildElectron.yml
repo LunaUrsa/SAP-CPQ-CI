@@ -39,6 +39,8 @@ jobs:
         with:
           node-version: 12.12.0
 
+      - name: Install Node.js, NPM and Yarn
+        run: npm install yarn -g
           
       - name: Install node packages
         run: yarn
